@@ -17,15 +17,18 @@ const CardContent = () => {
 }
 
 const container = {
-  padding: '10px'
+  padding: '10px 12px',
 }
 
 const h1 = {
-  fontSize: '0.8rem'
+  fontSize: '0.9rem',
+  marginBottom: '8px'
 }
 
 const content = {
-  fontSize: '0.8rem'
+  fontSize: '0.8rem',
+  lineHeight: '15px',
+  marginBottom: '2px'
 }
 
 const link = {

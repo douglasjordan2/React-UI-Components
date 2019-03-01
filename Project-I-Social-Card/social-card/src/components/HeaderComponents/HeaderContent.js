@@ -13,11 +13,13 @@ const HeaderContent = () => {
 }
 
 const container = {
-  marginBottom: '10px'
+  margin: '5px 0 10px 0',
+  width: '465px'
 }
 
 const p = {
-  fontSize: '0.8rem'
+  fontSize: '0.8rem',
+  lineHeight: '18px'
 }
 
 export default HeaderContent

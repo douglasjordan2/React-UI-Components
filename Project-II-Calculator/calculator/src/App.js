@@ -7,14 +7,14 @@ import ActionButton from './components/ButtonComponents/ActionButton';
 
 class App extends Component {
   state = {
-    display: 0,
+    display: this.calcArr,
     calcArr: []
   }
 
-  updateArr = btn => {
-    this.setState({ calcArr: this.state.calcArr.length === 0 ? [btn.num] : [...btn.num] })
-    console.log(this.state.calcArr)
-  }
+  updateArr = num => {
+    this.setState({ calcArr: [...this.state.calcArr, num] })
+    this.setState({ display: this.state.calcArr })
+  
 
   render() {
     return (
@@ -28,6 +28,13 @@ class App extends Component {
           displayVal = { this.state.display }
         />
         <Numbers 
+          style = {{
+            width: '75%',
+            maxHeight: '250px',
+            display: 'flex',
+            flexFlow: 'row-reverse wrap',
+            fontSize: '1.5rem'
+          }}
           numButtons = { numButtons }
           updateArr = { this.updateArr }
           displayVal = { this.state.display }

@@ -14,7 +14,8 @@ const HeaderContainer = () => {
 }
 
 const container = {
-  display: 'flex'
+  display: 'flex',
+  justifyContent: 'space-between'
 }
 
 export default HeaderContainer;
