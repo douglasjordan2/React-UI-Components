@@ -21,7 +21,7 @@ class NumberButton extends Component {
     return (
       <div 
         style = { this.btnStyle(props) }
-        onClick = { () => this.props.update(id) }
+        onClick = { id == 'clear' ? () => this.props.clear() : () => this.props.update(id) }
       >
         { this.props.btn.num }
       </div>
@@ -31,6 +31,7 @@ class NumberButton extends Component {
 
 NumberButton.propTypes = {
   btn: PropTypes.object.isRequired
+  
 }
 
 export default NumberButton;

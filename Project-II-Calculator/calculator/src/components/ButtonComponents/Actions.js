@@ -11,6 +11,7 @@ class Actions extends Component {
           btn = { btn }
           id = { btn.act }
           setOperator = { this.props.setOperator }
+          calculate = { this.props.calculate }
         />
       ))
     );
@@ -19,7 +20,8 @@ class Actions extends Component {
 
 Actions.propTypes = {
   actButtons: PropTypes.array.isRequired,
-  setOperator: PropTypes.func.isRequired
+  setOperator: PropTypes.func.isRequired,
+  calculate: PropTypes.func.isRequired
 }
 
 export default Actions;

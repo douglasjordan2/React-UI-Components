@@ -23,7 +23,7 @@ class CalculatorDisplay extends Component {
 }
 
 CalculatorDisplay.propTypes = {
-  displayVal: PropTypes.number.isRequired
+  displayVal: PropTypes.string.isRequired
 }
 
 export default CalculatorDisplay;

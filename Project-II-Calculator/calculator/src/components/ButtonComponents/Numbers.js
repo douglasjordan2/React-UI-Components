@@ -12,6 +12,7 @@ class Numbers extends Component {
           btn = { btn }
           id = { btn.num }
           update = { this.props.update }
+          clear = { this.props.clear }
         />
       ))
     );

@@ -6,7 +6,7 @@ class ActionButton extends Component {
     const { id } = this.props
     return (
       <div
-        onClick = { () => this.props.setOperator(id) }
+        onClick = { id == '=' ? () => this.props.calculate() : () => this.props.setOperator(id) }
         style = { btnStyle }
       >
         { this.props.btn.act }
