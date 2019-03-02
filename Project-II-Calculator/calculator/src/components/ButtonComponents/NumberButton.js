@@ -8,7 +8,7 @@ class NumberButton extends Component {
       background: 'white',
       border: '1px solid gray',
       height: '60px',
-      width: this.props.btn.num === 'clear' || this.props.btn.num === '0' ? '100%' : '33%',
+      width: this.props.btn.num === 'clear' || this.props.btn.num == '0' ? '100%' : '33.3%',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -16,15 +16,15 @@ class NumberButton extends Component {
     })
   }
 
-  render() {
-    const { num } = this.props.btn;
+  render(props) {
+    const { id } = this.props
     return (
-        <div 
-          style = { this.btnStyle() }
-          onClick = { () => this.props.updateArr.bind(this, num) }
-        >
-          { this.props.btn.num }
-        </div>
+      <div 
+        style = { this.btnStyle(props) }
+        onClick = { () => this.props.update(id) }
+      >
+        { this.props.btn.num }
+      </div>
     );
   }
 }
