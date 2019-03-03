@@ -13,15 +13,22 @@ class App extends Component {
     acc: '',
     operand1: '',
     operator: '',
-    operand2: ''
+    operand2: '',
+    track: false,
+    operatorHold: ''
   }
 
   update = id => {
-    this.setState({ acc: this.state.acc += id })
+    console.log(this.state)
+    if(this.state.operator !== '') {
+      this.setState({ track: this.state.track = true })
+    }
+    this.setState({ acc: this.state.acc == '' ? this.state.acc = id : this.state.acc += id })
     this.setState({ displayVal: this.state.displayVal = this.state.acc })
   }
 
   clear = () => {
+    console.log(this.state)
     this.setState({ displayVal: this.state.displayVal = 0 })
     this.setState({ acc: this.state.acc = '' })
     this.setState({ operand1: this.state.operand1 = '' })
@@ -30,13 +37,23 @@ class App extends Component {
   }
 
   setOperator = id => {
-    this.setState({ operand1: this.state.operand1 = this.state.acc == '' ? parseInt(this.state.operand1) : parseInt(this.state.acc) })
-    this.setState({ acc: this.state.acc = '' })
-    this.setState({ operator: this.state.operator = id })
-    this.setState({ displayVal: this.state.displayVal += " " + id })
+    console.log(this.state)
+    if(this.state.track) {
+      this.setState({ operatorHold: this.state.operatorHold = id });
+      this.calculate();
+    } else {
+      this.setState({ operand1: this.state.operand1 = this.state.acc == '' ? parseInt(this.state.operand1) : parseInt(this.state.acc) })
+      this.setState({ acc: this.state.acc = '' })
+      this.setState({ operator: this.state.operator = id })
+    }
   }
 
   calculate = () => {
+    console.log(this.state)
+    if(this.state.operatorHold == '') {
+      this.setState({ track: this.state.track = false })
+    }
+    this.setState({ track: this.state.track = false })
     this.setState({ operand2: this.state.operand2 = parseInt(this.state.acc) })
     let calc;
     switch(this.state.operator) {
@@ -54,14 +71,12 @@ class App extends Component {
         break;
     }
 
-    console.log(this.state.operand1, this.state.operator, this.state.operand2)
-
     this.setState({ displayVal: this.state.displayVal = calc })
     this.setState({ operand1: this.state.operand1 = calc })
     this.setState({ acc: this.state.acc = '' })
+    this.setState({ operator: this.state.operator = this.state.operatorHold })
+    this.setState({ operatorHold: this.state.operatorHold = '' })
     this.setState({ operand2: this.state.operand2 = '' })
-
-    console.log(this.state.operand1)
   }
 
   render() {
